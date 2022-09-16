@@ -6,6 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
 
+    //reference to player sprite's rigid body
+    //public Rigidbody2D rb;
+
+    //force applied to jump
+    //public float jumpForce = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +38,16 @@ public class PlayerController : MonoBehaviour
         which gives movement a feeling of acceleration. GetAxisRaw will skip the
         increments or decrements and go straight to 1 or -1, so that movement will
         always be at top speed.
+        */
+
+        /*JUMP CODE(INACTIVE, REQUIRES RIGID BODY AND ASSIGNMENT)
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //function for applying force. parameters are a vector2 of force applied on X and Y axis, and ForceMode, which is how the force is applied
+            //Vector2.up is a shorthand for (0,1). This is useful since we only need upward force
+            //By defaule, AddForce applies force additively. ForceMode Impulse makes it apply force all at once
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
         */
     }
 }
