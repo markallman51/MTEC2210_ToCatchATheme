@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject itemPrefab;
+    public GameObject[] itemPrefab;
 
     public Transform left;
     public Transform right;
@@ -12,6 +13,10 @@ public class GameManager : MonoBehaviour
     private float xPos;
     private float prevXPos;
     public float tooCloseOffset = 2;
+
+    public int score;
+
+    public TextMeshPro scoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +29,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //update score
+        //ToString converts the int score to a string for tmp
+        scoreText.text = score.ToString();
     }
 
     public void SpawnItem()
@@ -46,13 +53,21 @@ public class GameManager : MonoBehaviour
         //either way so it can be static
         Vector2 spawnPos = new Vector2(xPos, right.position.y);
 
+        int index = Random.Range(0, itemPrefab.Length);
+
         //Instantiate() function create a game object
         //takes in a GameObject, a location(based on world pos). and a rotation
         //here, Vector3.zero is (I assume) shorthand for (0, 0, 0)
         //and Quaternion.identity just means no rotation.
-        Instantiate(itemPrefab, spawnPos, Quaternion.identity);
+        Instantiate(itemPrefab[index], spawnPos, Quaternion.identity);
 
         //set current x position to previous for the next call
         prevXPos = xPos;
+    }
+
+
+    public void IncrementScore(int value)
+    {
+        score += value;
     }
 }

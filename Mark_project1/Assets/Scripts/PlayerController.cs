@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public GameManager gMan;
     public float speed;
 
     //reference to player sprite's rigid body
@@ -49,5 +51,24 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
         */
+
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        //the Destroy function deletes game objects
+        //Having this function in OnTrigger will destroy anything they player touches
+        
+        if(col.gameObject.tag == "Coin")
+        {
+            gMan.IncrementScore(1);
+            Destroy(col.gameObject);
+        }
+            
+
+        if(col.gameObject.tag == "Death")
+            Destroy(gameObject);
+    }
+
+    
 }

@@ -19,4 +19,10 @@ public class item : MonoBehaviour
         //after spawning, item will move downward at a random speed
         transform.Translate(0, -speed * Time.deltaTime,0);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Groundry")
+            Destroy(gameObject);
+    }
 }
