@@ -8,6 +8,12 @@ public class PlayerController : MonoBehaviour
     public GameManager gMan;
     public float speed;
 
+    public SpriteRenderer zombie;
+
+
+  
+    public AudioClip[] brainMunch;
+    public AudioClip dead;
     //reference to player sprite's rigid body
     //public Rigidbody2D rb;
 
@@ -51,6 +57,19 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
         */
+        
+
+        /*
+        To flip the sprite for movement, I instinctively went for a "GetKeyDown bool" apporach, but we aren't using GetKeyDown
+        Because we are using Horizontal, we can use that to flip the sprite instead
+        Horizontal switches to -1 for left and 1 for right, so we can use the value of Horizontal to check what direction the player is facing
+         */
+
+        if(xVel > 0)
+            zombie.flipX = false;
+
+        if(xVel < 0)
+            zombie.flipX = true;
 
     }
 
@@ -62,12 +81,22 @@ public class PlayerController : MonoBehaviour
         if(col.gameObject.tag == "Coin")
         {
             gMan.IncrementScore(1);
+            gMan.PointSound(brainMunch);
             Destroy(col.gameObject);
         }
             
 
         if(col.gameObject.tag == "Death")
+        {
+            gMan.DeathSound(dead);
             Destroy(gameObject);
+        }
+
+        if(col.gameObject.tag == "Item")
+        {
+            Debug.Log("Switch'er up!");
+        }
+            
     }
 
     

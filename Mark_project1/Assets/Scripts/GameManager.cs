@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public int score;
 
     public TextMeshPro scoreText;
+
+    public AudioSource soundEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,8 @@ public class GameManager : MonoBehaviour
         //takes in a function name as a string, delay before first call, and
         //delay between each call
         InvokeRepeating("SpawnItem", 2, 2);
+
+        soundEffect = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -69,5 +73,16 @@ public class GameManager : MonoBehaviour
     public void IncrementScore(int value)
     {
         score += value;
+    }
+
+    public void DeathSound(AudioClip clip)
+    {
+        soundEffect.PlayOneShot(clip);
+    }
+
+    public void PointSound(AudioClip[] clips)
+    {
+        soundEffect.clip = clips[Random.Range(0, clips.Length)];
+        soundEffect.Play();
     }
 }
