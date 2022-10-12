@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
         if(col.gameObject.tag == "Item")
         {
             Debug.Log("Switch'er up!");
+            Destroy(col.gameObject);
         }
             
     }
