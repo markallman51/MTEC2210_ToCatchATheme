@@ -10,10 +10,12 @@ public class PlayerController : MonoBehaviour
 
     public SpriteRenderer zombie;
 
-
-  
     public AudioClip[] brainMunch;
     public AudioClip dead;
+
+    public Animator animator;
+
+    //private bool playerDied = false;
     //reference to player sprite's rigid body
     //public Rigidbody2D rb;
 
@@ -71,6 +73,15 @@ public class PlayerController : MonoBehaviour
         if(xVel < 0)
             zombie.flipX = true;
 
+        /*
+        In our Animator, we use the float "Moving" to determine when to transition from idle animation to walking animation.
+        Here, we'll change the value of Moving based on if the player is moving or not.
+        */
+        if (xVel == 0)
+            animator.SetBool("Moving", false);
+        else
+            animator.SetBool("Moving", true);
+
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -78,18 +89,26 @@ public class PlayerController : MonoBehaviour
         //the Destroy function deletes game objects
         //Having this function in OnTrigger will destroy anything they player touches
         
+        //when the player collects a brain(player sprite collides with brain sprite):
+        //-score +1
+        //-use PointSound function to play a munch sound
+        //destroy the brain
         if(col.gameObject.tag == "Coin")
         {
             gMan.IncrementScore(1);
             gMan.PointSound(brainMunch);
             Destroy(col.gameObject);
         }
-            
 
-        if(col.gameObject.tag == "Death")
+        //when the player dies(player sprite collides with bullet sprite):
+        //-use DeathSound function to play the gunshot
+        //destroy player
+        if (col.gameObject.tag == "Death")
         {
             gMan.DeathSound(dead);
             Destroy(gameObject);
+            //gameObject.SetActive(false);
+            //playerDied = true;
         }
 
         if(col.gameObject.tag == "Item")

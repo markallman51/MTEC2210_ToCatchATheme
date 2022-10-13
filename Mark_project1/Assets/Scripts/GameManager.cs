@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public int score;
 
     public TextMeshPro scoreText;
+    //public TextMeshPro deadText;
 
     public AudioSource soundEffect;
     // Start is called before the first frame update
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
         //update score
         //ToString converts the int score to a string for tmp
         scoreText.text = score.ToString();
+       //deadText.text = "Ya done got shot! Press 'r' to restart";
     }
 
     public void SpawnItem()

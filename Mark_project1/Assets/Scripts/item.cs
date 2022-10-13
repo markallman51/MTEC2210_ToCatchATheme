@@ -10,7 +10,7 @@ public class item : MonoBehaviour
     void Start()
     {
         //set a random speed between 3 and 7
-        speed = Random.Range(3, 7);
+        speed = Random.Range(2, 7);
     }
 
     // Update is called once per frame
