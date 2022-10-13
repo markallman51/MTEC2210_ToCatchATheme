@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 482259670}
   - component: {fileID: 482259674}
   - component: {fileID: 482259675}
+  - component: {fileID: 482259676}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -328,6 +329,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 499f1750be8ac3840a6463099f5a1884, type: 3}
   - {fileID: 8300000, guid: 3dc9d892b6306744abf284fba2f262a5, type: 3}
   dead: {fileID: 8300000, guid: 688fe56303c4b5247ae50445669434aa, type: 3}
+  animator: {fileID: 482259676}
 --- !u!212 &482259671
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -369,12 +371,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f6f9e75cb25d38d4aa170e96d0db9f74, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e92310349f61b8d42b1c8ffac7fad783, type: 3}
   m_Color: {r: 0.9811321, g: 0.81037635, b: 0.58682805, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.3, y: 5.19}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -413,7 +415,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 4.3, y: 5.19}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 4.3, y: 5.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -442,6 +444,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &482259676
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482259669}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 17d3526c3caf5ae42b3da505555bf777, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +649,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 16.569584, w: 0}
+  m_margin: {x: 0, y: 0, z: 10.921918, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -972,10 +994,10 @@ MonoBehaviour:
   itemPrefab:
   - {fileID: 6704738741892061535, guid: 2d52cfecf4f96bd44881e10b5092624b, type: 3}
   - {fileID: 6704738741892061535, guid: 2d52cfecf4f96bd44881e10b5092624b, type: 3}
+  - {fileID: 6704738741892061535, guid: 2d52cfecf4f96bd44881e10b5092624b, type: 3}
+  - {fileID: 6704738741892061535, guid: 2d52cfecf4f96bd44881e10b5092624b, type: 3}
   - {fileID: 7760029802185354141, guid: b8261ab38e1f0454d9dcdbe1f456ec94, type: 3}
-  - {fileID: 7760029802185354141, guid: b8261ab38e1f0454d9dcdbe1f456ec94, type: 3}
-  - {fileID: 7760029802185354141, guid: b8261ab38e1f0454d9dcdbe1f456ec94, type: 3}
-  - {fileID: 7760029802185354141, guid: b8261ab38e1f0454d9dcdbe1f456ec94, type: 3}
+  - {fileID: 6704738741892061535, guid: 2d52cfecf4f96bd44881e10b5092624b, type: 3}
   - {fileID: 1150746763296620322, guid: 9bd426313315cb74d9895f81f993af9e, type: 3}
   - {fileID: 1150746763296620322, guid: 9bd426313315cb74d9895f81f993af9e, type: 3}
   - {fileID: 1150746763296620322, guid: 9bd426313315cb74d9895f81f993af9e, type: 3}
